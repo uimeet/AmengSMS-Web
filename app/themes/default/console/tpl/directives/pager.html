@@ -1,0 +1,19 @@
+<!-- pager -->
+<div class="pgrBar" ng-show="scope.attrs.totalPages > 0">
+    <span class="info">第<var>{{scope.currentPage}}</var>页, 共<var>{{scope.attrs.totalPages}}</var>页, 共<var>{{scope.attrs.totalRecords}}</var>条</span>
+    <span class="goto">
+        <input type="text" class="form-control input-sm" ng-model="scope.goto" />
+        <button class="btn btn-primary btn-xs" ng-click="scope.pagerGoto()">跳转</button>
+    </span>
+    <nav aria-label="Page navigation">
+        <ul uib-pagination
+            total-items="scope.attrs.totalRecords"
+            ng-model="scope.currentPage"
+            ng-change="scope.pagerChange()"
+            next-text="下一页"
+            max-size="scope.attrs.maxSize"
+            items-per-page="scope.attrs.itemsPerPage"
+            previous-text="上一页"></ul>
+    </nav>
+</div>
+<!-- /pager -->

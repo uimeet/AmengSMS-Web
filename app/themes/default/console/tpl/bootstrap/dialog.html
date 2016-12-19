@@ -1,0 +1,30 @@
+<div class="panel panel-color panel-custom">
+    <div class="panel-heading">
+        <button type="button" class="close m-t-5" ng-if="data.showOKButton && data.showCancelButton" data-dismiss="modal" aria-hidden="true" ng-click="cancel(data)">
+            <span aria-hidden="true">×</span>
+        </button>
+
+        <h3 class="panel-title" ng-bind="data.title"></h3>
+    </div>
+    <div class="panel-body">
+        <div ng-if="data.templateUrl">
+            <div ng-include="settings.tpl_prefix + data.templateUrl"></div>
+        </div>
+        <div ng-if="data.template">
+            <div ng-bind-html="data.template"></div>
+        </div>
+        <div ng-if="!data.templateUrl && !data.template">
+            <i class="fa fa2-{{::data.iconClass}}"></i><span ng-bind-html="data.body"></span>
+        </div>
+    </div>
+    <div class="panel-footer text-right" ng-show="data.showOKButton || data.showCancelButton">
+        <button class="btn btn-custom" ng-show="data.showOKButton"
+                type="button"
+                ng-disabled="data.isBusy"
+                ng-click="confirm(data)"
+                v-busy="data.isBusy"
+                v-busy-label="确定"
+                v-pressable>确定</button>
+        <button class="btn btn-gray" ng-show="data.showCancelButton" type="button" ng-click="cancel(data)">取消</button>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+{
+  "name": "amengsms-web-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-i18n": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "angular-cookies": "^1.5.7",
+    "angular-animate": "^1.5.7",
+    "angular-resource": "^1.5.7",
+    "angular-sanitize": "^1.5.7",
+    "angular-base64": "",
+    "angular-ui-router": "^0.2.18",
+    "angular-growl-v2": "^0.7.8",
+    "angular-w5c-validator": "",
+    "angular-bootstrap": "^2.0.0",
+    "angular-md5": ">=0.1.10",
+    "angular-busy": ">=4.1.3",
+    "angular-ui-select2": "",
+    "angular-file-upload":"^2.3.4",
+    "angular-timeago": "^0.4.3",
+    "angular-awesome-slider": "^2.4.4",
+    "angular-audio": "^1.7.1",
+    "angular-material": "",
+    "angular-touch": "",
+    "v-button": "",
+    "bootstrap": "^3.3.6",
+    "requirejs": "^2.2.0",
+    "jquery": "2.2.4",
+    "datejs": "",
+    "monospaced/angular-qrcode": "",
+    "ng-tags-input": "",
+    "angulartics-google-analytics": ""
+  },
+  "resolutions": {
+    "angular": "^1.5.7",
+    "angular-animate": "^1.5.7",
+    "jquery": "2.2.4"
+  }
+}

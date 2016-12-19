@@ -1,0 +1,89 @@
+<div class="text-center logo-alt-box">
+    <a href="index.html" class="logo"><span>{{::settings.site_name}}管理中心</span></a>
+    <h5 class="text-muted m-t-0">{{::settings.site_slogan}}</h5>
+</div>
+
+<div class="wrapper-page">
+
+    <div class="m-t-30 card-box">
+        <div class="text-center">
+            <h4 class="text-uppercase font-bold m-b-0">登录</h4>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal m-t-10 w5c-form" w5c-form-validate="vm.validateOptions" name="vForm"
+                  novalidate method="post">
+                <div class="form-group ">
+                    <div class="col-xs-12">
+                        <input class="form-control" type="text" name="username" placeholder="用户名"
+                            required=""
+                            ng-pattern="/^[A-Za-z]{1}[0-9A-Za-z_]{5,16}$/"
+                            ng-model="vm.entity.name" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <input class="form-control" type="password" name="passwd" placeholder="登录密码"
+                            required=""
+                            ng-minlength="6"
+                            ng-maxlength="16"
+                            ng-model="vm.entity.passwd"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="input-group">
+                            <input type="text" id="vercode" name="vercode" class="form-control" placeholder="验证码"
+                                required=""
+                                ng-minlength="4"
+                                ng-maxlength="4"
+                                minlength="4"
+                                maxlength="4"
+                                ng-model="vm.entity.vercode"/>
+                            <span class="input-group-addon"><img ng-click="change_verimage()" height="24" ng-src="{{verimage}}" /></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <div class="col-xs-12">
+                        <div class="checkbox checkbox-custom">
+                            <input id="remember" type="checkbox" name="remember" value="1" ng-model="vm.entity.remember">
+                            <label for="remember">
+                                记住账号
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group text-center m-t-30">
+                    <div class="col-xs-12">
+                        <button class="btn btn-custom btn-bordred btn-block waves-effect waves-light text-uppercase"
+                                type="submit"
+                                w5c-form-submit="vm.login($event)"
+                                ng-disabled="vm.isBusy"
+                                v-busy="vm.isBusy"
+                                v-busy-label="立即登录"
+                                v-pressable>提交登录
+                        </button>
+                    </div>
+                </div>
+
+
+
+            </form>
+
+        </div>
+    </div>
+    <!-- end card-box -->
+
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <p class="text-muted">@Everyone</p>
+        </div>
+    </div>
+
+</div>
+<!-- end wrapper page -->

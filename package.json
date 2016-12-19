@@ -1,0 +1,25 @@
+{
+  "name": "micai-webapp",
+  "private": true,
+  "version": "0.1.0",
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "http-server": "^0.9.0",
+    "grunt": ">=0.4.5",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-concat": ">=0.5.x",
+    "grunt-contrib-uglify": ">=0.5.x",
+    "grunt-contrib-requirejs": ">=1.0.0",
+    "grunt-contrib-cssmin": ">=0.5.x",
+    "grunt-ng-html2js": ">=0.2.1",
+    "grunt-html2js": ""
+  },
+  "scripts": {
+    "postinstall": "bower install --allow-root",
+    "prestart": "npm install",
+    "start": "http-server -a 0.0.0.0 -p 8000 -c-1 ./app",
+
+    "pretest": "npm install"
+
+  }
+}

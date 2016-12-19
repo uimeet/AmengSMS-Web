@@ -1,0 +1,62 @@
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="pull-right m-t-25">
+            <a ui-sref="console.admin.userAdd" type="button" class="btn btn-custom dropdown-toggle waves-effect waves-light"><span class="m-r-5"><i class="fa fa-file-o"></i></span> 新建管理用户</a>
+        </div>
+        <h4 class="page-title">管理用户管理</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-box">
+            <div class="table-responsive" cg-busy="{promise:scope.initLoader}">
+                <table class="table table-hover table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th class="text-right">#</th>
+                        <th class="text-center">登录名</th>
+                        <th class="text-center">管理角色</th>
+                        <th class="text-center">添加时间</th>
+                        <th class="text-center" colspan="4">最后登录</th>
+                        <th class="text-center">状态</th>
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-if="scope.admins" ng-repeat="admin in scope.admins.records">
+                        <td class="text-right">{{::admin.id}}</td>
+                        <td>{{::admin.login_name}}</td>
+                        <td>{{::admin.role_names}}</td>
+                        <td class="text-center">{{::admin.date_created}}</td>
+                        <td class="text-center">{{::admin.last_login | to_js_timestamp | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+                        <td class="text-center">{{::admin.last_ip | int_ip_to_str}}</td>
+                        <td class="text-center">{{::admin.last_area}}</td>
+                        <td class="text-center">{{::admin.last_isp}}</td>
+                        <td class="text-center"><span class="label label-{{::admin.status.label}}">{{::admin.status.text}}</span></td>
+                        <td class="text-center">
+                            <a class="btn btn-default btn-xs" uib-tooltip="编辑" ui-sref="console.admin.userEdit({adminId:admin.id})"><i class="fa fa-copy"></i></a>
+                            <a class="btn btn-danger btn-xs" ng-disabled="admin.id == 1" ng-click="scope.deleteAdmin(admin)" uib-tooltip="删除" ng-if="admin.status.value != 2"><i class="fa fa-trash-o"></i></a>
+                            <a class="btn btn-success btn-xs" ng-disabled="admin.id == 1" ng-click="scope.unlockAdmin(admin)" uib-tooltip="恢复" ng-if="admin.status.value == 2"><i class="fa fa-undo"></i></a>
+                            <a class="btn btn-warning btn-xs" ng-disabled="admin.id == 1" ng-click="scope.lockAdmin(admin)" uib-tooltip="锁定" ng-if="admin.status.value == 0"><i class="fa fa-lock"></i></a>
+                            <a class="btn btn-success btn-xs" ng-disabled="admin.id == 1" ng-click="scope.unlockAdmin(admin)" uib-tooltip="解锁" ng-if="admin.status.value == 1"><i class="fa fa-unlock"></i></a>
+                        </td>
+                    </tr>
+                    <tr ng-if="!scope.admins">
+                        <td colspan="10" class="text-center">无数据</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- pager -->
+            <pager
+                pager-change="scope.pagerChange"
+                pager-options="{ page: scope.admins.page, totalRecords: scope.admins.total_records }"
+            ></pager>
+            <!-- /pager -->
+        </div>
+    </div>
+</div>
+<!-- end row -->

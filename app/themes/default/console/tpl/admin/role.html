@@ -1,0 +1,27 @@
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="pull-right m-t-25">
+            <a ui-sref="console.admin.roleAdd" type="button" class="btn btn-custom dropdown-toggle waves-effect waves-light"><span class="m-r-5"><i class="fa fa-file-o"></i></span> 新建角色</a>
+        </div>
+        <h4 class="page-title">角色管理</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3" ng-repeat="role in scope.roles">
+        <div class="card-box">
+            <div class="dropdown pull-right" uib-dropdown>
+                <a href="javascript:;" class="dropdown-toggle card-drop" uib-dropdown-toggle>
+                    <i class="zmdi zmdi-more-vert"></i>
+                </a>
+                <ul class="dropdown-menu" role="menu" uib-dropdown-menu>
+                    <li><a ui-sref="console.admin.roleEdit({roleId: role.id})">编辑</a></li>
+                    <li><a href="javascript:;" ng-click="scope.deleteRole(role)">删除</a></li>
+                </ul>
+            </div>
+            <h4 class="header-title m-t-0 m-b-30">{{::role.name}}</h4>
+        </div>
+    </div><!-- end col -->
+</div>
+<!-- end row -->

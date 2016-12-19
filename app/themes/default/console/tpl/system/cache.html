@@ -1,0 +1,18 @@
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+        <h4 class="page-title">缓存管理</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-box">
+            <h4 class="page-header m-t-0">清除缓存</h4>
+            <button type="button" class="btn btn-danger" ng-click="scope.clear('系统配置', 'config')">系统配置</button>
+            <button type="button" class="btn btn-danger" ng-click="scope.clear('权限列表', 'allfunctions')">权限列表</button>
+            <button type="button" class="btn btn-danger" ng-click="scope.clear('角色列表', 'allroles')">角色列表</button>
+            <button type="button" class="btn btn-primary" ng-click="scope.clear('自己权限', 'myrole')">我的权限</button>
+        </div>
+    </div>
+</div>

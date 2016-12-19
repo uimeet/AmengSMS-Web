@@ -1,0 +1,130 @@
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+        <h4 class="page-title">任务管理</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-box">
+            <uib-tabset>
+                <uib-tab index="0" select="scope.query(1, 0, scope)">
+                    <uib-tab-heading><i class="fa fa-calendar-minus-o"></i> 执行中</uib-tab-heading>
+                    <div class="table-responsive" cg-busy="{promise:scope.initLoader}">
+                        <table class="table table-hover table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th class="text-center">ID</th>
+                                <th class="text-center">类型</th>
+                                <th class="text-center">创建时间</th>
+                                <th class="text-center">激活时间</th>
+                                <th class="text-center">集群标识</th>
+                                <th class="text-center">状态</th>
+                                <th class="text-center">进度</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-if="scope.tasks[0]" ng-repeat="task in scope.tasks[0]">
+                                <td class="text-right">{{::task.id}}.</td>
+                                <td>{{::task.type.text}}</td>
+                                <td class="text-center">{{::task.time_created_text}}</td>
+                                <td class="text-center">{{::task.active_time_text}}</td>
+                                <td class="text-right">{{::task.tail_num}}.</td>
+                                <td class="text-center">{{::task.status.text}}</td>
+                                <td>{{::task.status_text}}</td>
+                            </tr>
+                            <tr ng-if="!scope.tasks[0]">
+                                <td colspan="7" class="text-center">无任务</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </uib-tab>
+                <uib-tab index="2" select="scope.query(1, 2, scope)">
+                    <uib-tab-heading><i class="fa fa-calendar-times-o"></i> 执行失败</uib-tab-heading>
+                    <div class="table-responsive" cg-busy="{promise:scope.initLoader}">
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                            <tr>
+                                <th class="text-center">ID</th>
+                                <th class="text-center">类型</th>
+                                <th class="text-center">创建时间</th>
+                                <th class="text-center">激活时间</th>
+                                <th class="text-center">集群标识</th>
+                                <th class="text-center">状态</th>
+                                <th class="text-center">结果</th>
+                                <th class="text-center">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-if="scope.tasks[2]" ng-repeat="task in scope.tasks[2]">
+                                <td class="text-right">{{::task.id}}.</td>
+                                <td>{{::task.type.text}}</td>
+                                <td class="text-center">{{::task.time_created_text}}</td>
+                                <td class="text-center">{{::task.active_time_text}}</td>
+                                <td class="text-right">{{::task.tail_num}}.</td>
+                                <td class="text-center">{{::task.status.text}}</td>
+                                <td>{{::task.status_text}}</td>
+                                <td class="text-center">
+                                    <a uib-tooltip="查看详情" class="btn btn-default btn-xs" ng-click="scope.detail(task)"><i class="fa fa-info-circle"></i></a>
+                                    <a uib-tooltip="重试" class="btn btn-primary btn-xs" ng-click="scope.active(task)"><i class="fa fa-reply"></i></a>
+                                </td>
+                            </tr>
+                            <tr ng-if="!scope.tasks[2]">
+                                <td colspan="8" class="text-center">太棒了，没有处理失败的任务！</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </uib-tab>
+                <uib-tab index="1" select="scope.query(1, 1, scope)">
+                    <uib-tab-heading><i class="fa fa-calendar-check-o"></i> 执行成功</uib-tab-heading>
+                    <div class="table-responsive" cg-busy="{promise:scope.initLoader}">
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                            <tr>
+                                <th class="text-center">ID</th>
+                                <th class="text-center">类型</th>
+                                <th class="text-center">创建时间</th>
+                                <th class="text-center">激活时间</th>
+                                <th class="text-center">集群标识</th>
+                                <th class="text-center">状态</th>
+                                <th class="text-center">结果</th>
+                                <th class="text-center">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-if="scope.tasks[1]" ng-repeat="task in scope.tasks[1]">
+                                <td class="text-right">{{::task.id}}.</td>
+                                <td>{{::task.type.text}}</td>
+                                <td class="text-center">{{::task.time_created_text}}</td>
+                                <td class="text-center">{{::task.active_time_text}}</td>
+                                <td class="text-right">{{::task.tail_num}}.</td>
+                                <td class="text-center">{{::task.status.text}}</td>
+                                <td>{{::task.status_text}}</td>
+                                <td class="text-center">
+                                    <a uib-tooltip="查看详情" class="btn btn-default btn-xs" ng-click="scope.detail(task)"><i class="fa fa-info-circle"></i></a>
+                                </td>
+                            </tr>
+                            <tr ng-if="!scope.tasks[1]">
+                                <td colspan="8" class="text-center">还没有处理成功的任务哦~</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+
+            <div class="m-t-10" ng-if="scope.pager">
+                <!-- pager -->
+                <pager
+                    pager-change="scope.pagerChange"
+                    pager-options="{ page: scope.pager.page, totalRecords: scope.pager.total_records }"
+                ></pager>
+                <!-- /pager -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->

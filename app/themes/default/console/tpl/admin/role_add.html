@@ -1,0 +1,65 @@
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+        <h4 class="page-title">设置角色</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-box">
+            <form class="w5c-form" novalidate w5c-form-validate="scope.validateOptions" method="post" name="vform">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="control-group">
+                            <div class="controls">
+                                <label class="control-label">角色名称</label>
+                                <input name="name" ng-model="scope.role.name" type="text" required class="input-large form-control"
+                                       placeholder="输入角色名称"/>
+                            </div>
+                        </div>
+                        <div class="control-group" ng-repeat="function in scope.functions">
+                            <div class="col-md-12">
+                                <h5 class="page-header">
+                                    {{::function.text}}
+                                </h5>
+                                <div class="clearfix">
+                                    <div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="func in function.children">
+                                        <div class="checkbox checkbox-danger controls">
+                                            <input id="selected{{::func.id}}"
+                                                   name="functions"
+                                                   ng-model="func.actived"
+                                                   type="checkbox" class="input-mini" />
+                                            <label for="selected{{::func.id}}">{{::func.name}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+
+                    </div>
+                </div><!-- end row -->
+
+                <div class="row m-t-30">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary waves-effect waves-light" id="okButton"
+                            w5c-form-submit="scope.submit($event)"
+                            ng-disabled="scope.isBusy"
+                            v-busy="scope.isBusy"
+                            v-busy-label="确定提交"
+                            v-pressable>
+                            确定提交
+                        </button>
+                        <a ui-sref="console.admin.role" class="btn btn-default waves-effect waves-light" id="cancelButton">
+                            返回列表
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div><!-- end col -->
+</div>
+<!-- end row -->

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <link href="/vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/vendor/angular-growl-v2/build/angular-growl.css" rel="stylesheet" />
+    <link href="/vendor/ng-tags-input/ng-tags-input.css" rel="stylesheet" />
+    <link href="/vendor/ng-tags-input/ng-tags-input.bootstrap.css" rel="stylesheet" />
+    <link href="/vendor/sweetalert/dist/sweetalert.css" rel="stylesheet" />
+    <link href="/vendor/angular-busy/dist/angular-busy.css" rel="stylesheet" />
+    <link href="/vendor/angular-awesome-slider/dist/css/angular-awesome-slider.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/v-button/dist/v-button.css" rel="stylesheet" />
+    <link href="/vendor/select2/select2.css" rel="stylesheet" />
+    <link href="/themes/default/console/css/core.css" rel="stylesheet" />
+    <link href="/themes/default/console/css/components.css" rel="stylesheet" />
+    <link href="/themes/default/console/css/icons.css" rel="stylesheet" />
+    <link href="/themes/default/console/css/pages.css" rel="stylesheet" />
+    <link href="/themes/default/console/css/menu.css" rel="stylesheet" />
+    <link href="/themes/default/console/css/responsive.css" rel="stylesheet" />
+    <link href="/themes/default/console/css/custom.css" rel="stylesheet" />
+    <script src="/vendor/requirejs/require.js"></script>
+    <script src="/scripts/main.js"></script>
+    <script>
+        require(['console/app'], function () {});
+    </script>
+    <title page-title></title>
+</head>
+<body>
+    <div ui-view cg-busy="{promise:initLoader}"></div>
+    <div growl></div>
+    <div class="position:absolute;top:0;left:0;bottom:0;right:0;display:none;" id="app-launch">
+        <img src="/themes/default/console/img/dashinfinity.gif" width="84" style="position:fixed;top:50%;left:50%;margin:-42px 0 0 -42px;" />
+    </div>
+</body>
+</html>

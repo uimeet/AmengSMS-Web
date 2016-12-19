@@ -1,0 +1,17 @@
+logs/*
+*.log
+*.pyc
+*.swp
+.DS_Store
+.idea/*
+*.bak
+runtime/*
+node_modules/*
+_src/*
+app/vendor/*
+npm-debug.log
+.wafpickle-N
+.lock-wscript
+app/dist/*
+app/js/*
+style.min.css
