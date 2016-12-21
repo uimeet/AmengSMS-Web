@@ -38,7 +38,8 @@
             "angular-touch": vendorPath + "/angular-touch/angular-touch",
             "angulartics": vendorPath + "/angulartics/src/angulartics",
             "angulartics-google-analytics": vendorPath + "/angulartics-google-analytics/lib/angulartics-ga",
-            "weixin": "http://res.wx.qq.com/open/js/jweixin-1.1.0"
+            "weixin": "http://res.wx.qq.com/open/js/jweixin-1.1.0",
+            "webuploader": vendorPath + "/webuploader/dist/webuploader.html5only"
         },
         shim: {
             "jQuery": { "exports": "jQuery" },
@@ -70,7 +71,8 @@
             "v-button": { "deps": ["angular"] },
             "qrcode_UTF8": { "deps": ["qrcode-generator"] },
             "angular-tags-input": { "deps": ["angular"] },
-            "angular-qrcode": { "deps": ["angular","qrcode_UTF8", "qrcode-generator"] }
+            "angular-qrcode": { "deps": ["angular","qrcode_UTF8", "qrcode-generator"] },
+            "webuploader": { "deps": ["jQuery"] }
         },
         waitSeconds: 30,
         urlArgs: "v20160714"

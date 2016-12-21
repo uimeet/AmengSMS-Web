@@ -31,7 +31,8 @@
     "datejs": "",
     "monospaced/angular-qrcode": "",
     "ng-tags-input": "",
-    "angulartics-google-analytics": ""
+    "angulartics-google-analytics": "",
+    "webuploader": "https://github.com/fex-team/webuploader.git"
   },
   "resolutions": {
     "angular": "^1.5.7",

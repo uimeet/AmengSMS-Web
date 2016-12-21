@@ -35,7 +35,35 @@
         }
     };
 
-    // === 管理用户相关 ===
+    /******************************************
+     * 视频管理相关
+     * ****************************************/
+    // 视频基类
+    var videoState = function (settings) {
+        return {
+            abstract: true,
+            template: '<ui-view />',
+            url: '/video',
+            data: {
+                pageTitle: '视频管理'
+            }
+        };
+    };
+    // 上传视频
+    var videoUploadState = function (settings) {
+        return {
+            templateUrl: settings.tpl_prefix + '/video/upload.html',
+            controller: 'amengsms.console.controllers.videoUpload',
+            url: '/user',
+            data: {
+                pageTitle: '视频上传'
+            }
+        };
+    };
+
+    /******************************************
+     * 管理用户相关
+     * ****************************************/
     // 父状态
     var adminState = function (settings) {
         return {
