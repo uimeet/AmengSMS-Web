@@ -17,6 +17,9 @@
 
             .state('console.task', consoleStates.task)
 
+            .state('console.video', consoleStates.video)
+            .state('console.video.upload', consoleStates.videoUpload)
+
             .state('console.system', consoleStates.system)
             .state('console.system.cache', consoleStates.systemCache);
         $urlRouterProvider.otherwise('/console/dashboard');

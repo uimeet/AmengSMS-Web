@@ -12,6 +12,7 @@
         'console/controllers/admin/user',
         'console/controllers/admin/userAdd',
         'console/controllers/task/task',
+        'console/controllers/video/upload',
         'console/controllers/system/cache'
     ], function (angular) {
         angular.module('amengsms.console.controllers'
@@ -25,6 +26,7 @@
                 'amengsms.console.controllers.adminUser',
                 'amengsms.console.controllers.adminUserAdd',
                 'amengsms.console.controllers.task.task',
+                'amengsms.console.controllers.video.upload',
                 'amengsms.console.controllers.system.cache'
             ]).run(['uiSelect2Config', function (uiSelect2Config) {
                 uiSelect2Config.dropdownAutoWidth = true;

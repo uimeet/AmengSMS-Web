@@ -39,7 +39,7 @@
             "angulartics": vendorPath + "/angulartics/src/angulartics",
             "angulartics-google-analytics": vendorPath + "/angulartics-google-analytics/lib/angulartics-ga",
             "weixin": "http://res.wx.qq.com/open/js/jweixin-1.1.0",
-            "webuploader": vendorPath + "/webuploader/dist/webuploader.html5only"
+            "webuploader": vendorPath + "/webuploader/dist/webuploader"
         },
         shim: {
             "jQuery": { "exports": "jQuery" },

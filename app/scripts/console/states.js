@@ -53,7 +53,7 @@
     var videoUploadState = function (settings) {
         return {
             templateUrl: settings.tpl_prefix + '/video/upload.html',
-            controller: 'amengsms.console.controllers.videoUpload',
+            controller: 'amengsms.console.controllers.video.upload',
             url: '/user',
             data: {
                 pageTitle: '视频上传'
@@ -196,6 +196,9 @@
             adminRoleEdit: adminRoleEditState(settings),
 
             task: taskState(settings),
+
+            video: videoState(settings),
+            videoUpload: videoUploadState(settings),
 
             system: systemState(settings),
             systemCache: systemCacheState(settings)
